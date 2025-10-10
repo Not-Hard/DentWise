@@ -1,18 +1,22 @@
-import { SignedIn, SignedOut, SignOutButton, SignUpButton } from "@clerk/nextjs";
-import Image from "next/image";
+import Header from '@/components/landing/Header';
+import Hero from '@/components/landing/Hero';
+import HowItWorks from '@/components/landing/HowItWorks';
+import WhatToAsk from '@/components/landing/WhatToAsk';
+import CTA from '@/components/landing/CTA';
+import Footer from '@/components/landing/Footer';
+import PricingSection from '@/components/landing/PricingSection';
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      {/* If user is not signed in, show sign up button */}
-      <SignedOut>
-        <SignUpButton>Sign up</SignUpButton>
-      </SignedOut>
-      {/* If user is signed in, show their sign out button */}
-      <SignedIn>
-        <SignOutButton>Sign out</SignOutButton>
-      </SignedIn>
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <Hero/>
+      <HowItWorks />
+      <WhatToAsk />
+      <PricingSection />
+      <CTA />
+      <Footer />
     </div>
   );
 }
