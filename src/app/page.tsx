@@ -6,12 +6,20 @@ import CTA from '@/components/landing/CTA';
 import Footer from '@/components/landing/Footer';
 import PricingSection from '@/components/landing/PricingSection';
 
-export default function Home() {
+import { currentUser } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+
+export default async function Home() {
+
+  const user = await currentUser();
+
+  // Redirect to dashboard if user is logged in 
+  if (user) redirect('/dashboard');
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      <Hero/>
+
+      <Hero />
       <HowItWorks />
       <WhatToAsk />
       <PricingSection />
